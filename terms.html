@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — PeerDrop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --violet-deep:  #1a0545;
+    --violet-mid:   #2D0B6B;
+    --violet-light: #7c3aed;
+    --violet-glow:  #a78bfa;
+    --violet-pale:  #ede9fe;
+    --ink:     #0e0b1a;
+    --ink-2:   #4a4a5a;
+    --ink-3:   #9898a8;
+    --surface: #f5f3ff;
+    --white:   #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 48px;
+    background: var(--violet-deep);
+    border-bottom: 1px solid rgba(167,139,250,0.15);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Instrument Serif', serif;
+    font-size: 22px; color: white; text-decoration: none;
+  }
+  .nav-logo .drop {
+    width: 26px; height: 26px;
+    background: radial-gradient(circle at 38% 35%, #c4b5fd, #7c3aed 60%, #4c1d95);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    transform: rotate(180deg);
+    box-shadow: 0 0 10px rgba(167,139,250,0.5);
+  }
+  .nav-back {
+    color: rgba(196,181,253,0.7); text-decoration: none;
+    font-size: 14px; transition: color 0.2s;
+  }
+  .nav-back:hover { color: white; }
+
+  .page-hero {
+    background: linear-gradient(160deg, #0d0221, #1a0545 50%, #2D0B6B);
+    padding: 72px 48px 64px;
+    position: relative; overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute; top: -30%; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 500px;
+    background: radial-gradient(ellipse, rgba(124,58,237,0.25) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .page-hero-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+  .badge {
+    display: inline-flex; align-items: center;
+    background: rgba(124,58,237,0.2);
+    border: 1px solid rgba(167,139,250,0.3);
+    color: var(--violet-glow);
+    padding: 5px 14px; border-radius: 100px;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; margin-bottom: 24px;
+  }
+  .page-hero h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(40px, 5vw, 64px);
+    color: white; line-height: 1.1;
+    letter-spacing: -0.02em; margin-bottom: 20px;
+  }
+  .page-hero p { color: rgba(196,181,253,0.7); font-size: 17px; line-height: 1.65; max-width: 560px; }
+  .page-hero .meta { margin-top: 32px; display: flex; gap: 32px; flex-wrap: wrap; }
+  .meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .meta-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(167,139,250,0.5); }
+  .meta-value { font-size: 14px; color: rgba(196,181,253,0.8); }
+
+  .content { max-width: 760px; margin: 0 auto; padding: 72px 48px 96px; }
+
+  .summary-card {
+    background: var(--surface);
+    border: 1px solid rgba(124,58,237,0.15);
+    border-radius: 20px; padding: 36px; margin-bottom: 64px;
+  }
+  .summary-card h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 24px; margin-bottom: 20px; color: var(--violet-light);
+  }
+  .summary-list { list-style: none; }
+  .summary-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 15px; color: var(--ink-2); line-height: 1.6;
+    padding: 8px 0; border-bottom: 1px solid rgba(124,58,237,0.08);
+  }
+  .summary-list li:last-child { border: none; }
+  .summary-list li .icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+
+  .policy-section { margin-bottom: 56px; }
+  .policy-section h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 28px; color: var(--ink);
+    margin-bottom: 16px; padding-bottom: 12px;
+    border-bottom: 2px solid var(--violet-pale);
+  }
+  .policy-section p {
+    font-size: 16px; color: var(--ink-2);
+    line-height: 1.8; margin-bottom: 16px;
+  }
+  .policy-section p:last-child { margin-bottom: 0; }
+  .policy-section ul { margin: 12px 0 16px 0; padding-left: 0; list-style: none; }
+  .policy-section ul li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 15px; color: var(--ink-2); line-height: 1.7; padding: 6px 0;
+  }
+  .policy-section ul li::before { content: '—'; color: var(--violet-light); flex-shrink: 0; font-weight: 500; }
+
+  .highlight {
+    background: var(--surface);
+    border-left: 3px solid var(--violet-light);
+    border-radius: 0 12px 12px 0;
+    padding: 16px 20px; margin: 20px 0;
+    font-size: 15px; color: var(--ink-2); line-height: 1.7;
+  }
+  .highlight strong { color: var(--ink); }
+
+  .contact-card {
+    background: linear-gradient(135deg, var(--violet-deep), var(--violet-mid));
+    border-radius: 20px; padding: 40px;
+    text-align: center; margin-top: 64px;
+    border: 1px solid rgba(167,139,250,0.2);
+  }
+  .contact-card h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 28px; color: white; margin-bottom: 12px;
+  }
+  .contact-card p { color: rgba(196,181,253,0.7); font-size: 16px; margin-bottom: 24px; }
+  .contact-card a {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(124,58,237,0.3);
+    border: 1px solid rgba(167,139,250,0.3);
+    color: #c4b5fd; padding: 12px 28px; border-radius: 100px;
+    text-decoration: none; font-size: 15px; transition: background 0.2s;
+  }
+  .contact-card a:hover { background: rgba(124,58,237,0.5); }
+
+  footer {
+    padding: 40px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid var(--violet-pale);
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-logo { font-family: 'Instrument Serif', serif; font-size: 18px; color: var(--ink); text-decoration: none; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { color: var(--ink-3); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--ink); }
+  .footer-copy { color: var(--ink-3); font-size: 13px; }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .page-hero { padding: 56px 24px 48px; }
+    .content { padding: 48px 24px 72px; }
+    footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="drop"></span>
+    PeerDrop
+  </a>
+  <a href="index.html" class="nav-back">← Back to home</a>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="badge">Legal</div>
+    <h1>Terms of Service</h1>
+    <p>Plain language terms for using PeerDrop. We've kept them short because there isn't much to say — PeerDrop is a simple tool that transfers files between people.</p>
+    <div class="meta">
+      <div class="meta-item">
+        <span class="meta-label">Effective date</span>
+        <span class="meta-value">May 3, 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Last updated</span>
+        <span class="meta-value">May 3, 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Applies to</span>
+        <span class="meta-value">macOS, iOS, Linux</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="content">
+
+  <div class="summary-card">
+    <h2>The short version</h2>
+    <ul class="summary-list">
+      <li>
+        <span class="icon">✅</span>
+        <span>PeerDrop is free to use for personal and commercial purposes.</span>
+      </li>
+      <li>
+        <span class="icon">🚫</span>
+        <span>Don't use PeerDrop to transfer illegal content or to harm others.</span>
+      </li>
+      <li>
+        <span class="icon">🔓</span>
+        <span>PeerDrop is open source — you can inspect, fork, and contribute to it.</span>
+      </li>
+      <li>
+        <span class="icon">⚠️</span>
+        <span>PeerDrop is provided as-is. We're not liable for how you use it.</span>
+      </li>
+      <li>
+        <span class="icon">📝</span>
+        <span>We may update these terms. Continued use means you accept the updated terms.</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="policy-section">
+    <h2>1. Acceptance of terms</h2>
+    <p>By downloading, installing, or using PeerDrop ("the App"), you agree to be bound by these Terms of Service. If you do not agree to these terms, do not use the App.</p>
+    <p>These terms apply to all versions of PeerDrop including the macOS app, iOS app, and Linux application.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>2. Description of service</h2>
+    <p>PeerDrop is a peer-to-peer file transfer application that allows users to send files directly between devices without using cloud storage or central servers. The App uses the Hyperswarm distributed hash table for peer discovery and the Noise protocol for encrypted connections.</p>
+    <p>PeerDrop does not provide storage, hosting, or relay services. All file transfers occur directly between end-user devices.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>3. Permitted use</h2>
+    <p>You may use PeerDrop to:</p>
+    <ul>
+      <li>Transfer files between your own devices</li>
+      <li>Transfer files to other people with their consent</li>
+      <li>Use the App for personal, educational, or commercial purposes</li>
+      <li>Inspect, modify, and distribute the source code under the applicable open source license</li>
+    </ul>
+  </div>
+
+  <div class="policy-section">
+    <h2>4. Prohibited use</h2>
+    <p>You may not use PeerDrop to:</p>
+    <ul>
+      <li>Transfer content that is illegal in your jurisdiction</li>
+      <li>Distribute malware, spyware, or other harmful software</li>
+      <li>Transfer files to someone without their knowledge or consent</li>
+      <li>Circumvent any applicable laws or regulations</li>
+      <li>Harass, threaten, or harm any person</li>
+      <li>Infringe on the intellectual property rights of others</li>
+    </ul>
+    <div class="highlight">
+      <strong>Important:</strong> Because PeerDrop is decentralised and we have no servers, we have no visibility into or control over what files are transferred. You are solely responsible for the content you send and receive.
+    </div>
+  </div>
+
+  <div class="policy-section">
+    <h2>5. Open source license</h2>
+    <p>PeerDrop is open source software. The source code is available on GitHub under its applicable open source license. Your rights to use, modify, and distribute the source code are governed by that license, not these Terms of Service.</p>
+    <p>The PeerDrop name and app icon are not covered by the open source license and may not be used without permission.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>6. Disclaimer of warranties</h2>
+    <p>PeerDrop is provided <strong>"as is"</strong> and <strong>"as available"</strong> without any warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+    <p>We do not warrant that the App will be uninterrupted, error-free, or free of viruses or other harmful components. You use PeerDrop at your own risk.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>7. Limitation of liability</h2>
+    <p>To the fullest extent permitted by applicable law, the developers of PeerDrop shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data, loss of profits, or damage to hardware, arising from your use of or inability to use the App.</p>
+    <p>Our total liability for any claims arising from your use of PeerDrop shall not exceed the amount you paid for the App (which is zero, as PeerDrop is free).</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>8. Your responsibility for transfers</h2>
+    <p>You are solely responsible for:</p>
+    <ul>
+      <li>All files you send using PeerDrop</li>
+      <li>Ensuring you have the right to send any files you transfer</li>
+      <li>The security of your own device and cryptographic seed</li>
+      <li>Who you share your Peer ID with</li>
+    </ul>
+    <p>If you lose your cryptographic seed, your identity cannot be recovered. We have no way to help you recover it.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>9. Modifications to the App and terms</h2>
+    <p>We reserve the right to modify or discontinue PeerDrop at any time without notice. We also reserve the right to update these Terms of Service. When we do, we will update the effective date at the top of this page.</p>
+    <p>Continued use of PeerDrop after any changes to these terms constitutes your acceptance of the new terms.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>10. Governing law</h2>
+    <p>These terms are governed by and construed in accordance with applicable law. Any disputes arising from these terms or your use of PeerDrop shall be resolved in the appropriate courts of the applicable jurisdiction.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>11. Severability</h2>
+    <p>If any provision of these terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary so that the remaining terms will remain in full force and effect.</p>
+  </div>
+
+  <div class="contact-card">
+    <h2>Questions about these terms?</h2>
+    <p>If you have any questions about these Terms of Service, open an issue on GitHub or reach out directly.</p>
+    <a href="https://github.com" target="_blank">Open an issue on GitHub →</a>
+  </div>
+
+</main>
+
+<footer>
+  <a href="index.html" class="footer-logo">PeerDrop</a>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="https://github.com" target="_blank">GitHub</a>
+  </div>
+  <div class="footer-copy">© 2026 PeerDrop. Open source.</div>
+</footer>
+
+</body>
+</html>
